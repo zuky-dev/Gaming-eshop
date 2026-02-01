@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Zámok: Ak používateľ nie je prihlásený, pošleme ho na login.php
+// AK používateľ nie je prihlásený, pošleme ho na login.php
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
@@ -79,4 +79,5 @@ include 'db.php';
     ?>
 </main>
 </body>
+
 </html>
