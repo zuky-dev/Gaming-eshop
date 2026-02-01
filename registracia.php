@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $error = "Email alebo prezývka už existuje!";
         } else {
             $hashed_pass = password_hash($pass, PASSWORD_DEFAULT);
-            // SQL s rozdeleným menom a prezývkou
+     
             $sql = "INSERT INTO pouzivatelia (meno, priezvisko, prezyvka, email, heslo, adresa, mesto, psc, krajina, telefon) 
                     VALUES ('$meno', '$priezvisko', '$prezyvka', '$email', '$hashed_pass', '$adresa', '$mesto', '$psc', '$krajina', '$telefon')";
             
@@ -213,4 +213,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
 </body>
+
 </html>
