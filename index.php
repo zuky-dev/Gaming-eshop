@@ -13,7 +13,7 @@ $bg_text = "Vyber si tie najlepšie komponenty pre tvoj stroj.";
 $use_image = false;
 $custom_bg_image = "";
 
-// Kľúčová zmena: PHP skontroluje, čo je v URL adrese
+// PHP skontroluje, čo je v URL adrese
 if(isset($_GET['kat']) && $_GET['kat'] == 'vypredaj') {
     $use_image = true;
     $custom_bg_image = "images/vypredaj.jpg"; // Pridaný custom obrázok pre výpredaj
@@ -30,7 +30,7 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
         case 6: $bg_video = "periferie_video.mp4"; $bg_title = "PRÍSLUŠENSTVO"; $bg_text = "Tvoje zbrane v boji o víťazstvo."; break;
     }
 } else {
-    $use_image = true; // Sme na hlavnej stránke (bez kategórie)
+    $use_image = true; // Hlavná stránka
 }
 ?>
 
@@ -64,7 +64,7 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
             justify-content: center;
             align-items: flex-start;
             gap: 20px;
-            max-width: 1700px; /* Široký kontajner aby vošli aj reklamy */
+            max-width: 1700px; 
             margin: 0 auto;
             padding: 40px 10px;
         }
@@ -77,7 +77,7 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
             border: 1px solid #00ff88;
             border-radius: 12px;
             position: sticky;
-            top: 100px; /* Zostane visieť pri skrolovaní */
+            top: 100px;
             padding: 15px;
             text-align: center;
             box-shadow: 0 0 15px rgba(0, 255, 136, 0.1);
@@ -113,7 +113,7 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
             .promo-sidebar { display: none; }
         }
 
-        /* Tvoj kód mriežky */
+       
         .produktova-mriezka { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; margin-top: 20px; }
         .karta-produktu { background: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; }
         .karta-produktu:hover { transform: translateY(-10px); border-color: #00ff88; box-shadow: 0 10px 30px rgba(0, 255, 136, 0.2); }
@@ -137,13 +137,12 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
     $res_kat = $conn->query("SELECT * FROM kategorie ORDER BY nazov ASC");
     while($kat = $res_kat->fetch_assoc()) {
         $cisty_nazov = preg_replace('/^[0-9]+\.\s+/', '', $kat['nazov']);
-        // Preskočíme výpredaj, aby sa nezobrazil medzi kategóriami
+
         if(strpos(strtolower($cisty_nazov), 'výpredaj') === false) {
             echo "<a href='index.php?kat=" . $kat['id'] . "'>" . htmlspecialchars($cisty_nazov) . "</a>";
         }
     }
     ?>
-    <!-- PRIDANÝ ODPOČINOK A VÝPREDAJ DO BOČNÉHO MENU - TEN SOM PRIDAL JA -->
     <hr style="border: 0; border-top: 1px solid #334155; margin: 10px 20px;">
     <a href="index.php?kat=vypredaj" style="color: #ff4d4d; font-weight: bold;">🔥 Výpredaj</a>
 </nav>
@@ -244,7 +243,7 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
         } 
         elseif($_GET['kat'] == 'vypredaj') {
             echo "<h2 class='section-title' style='color: #fff; border-left: 5px solid #ff4d4d; padding-left: 20px; margin-bottom: 40px;'>VÝPREDAJ</h2>";
-            // Opravený dotaz: Zobrazíme 3 produkty (ako na hlavnej stránke) - môžete zmeniť podľa potreby
+        
             $res = $conn->query("SELECT * FROM produkty WHERE id IN (102, 101, 100) ORDER BY FIELD(id, 102, 101, 100)");
         }
         else {
@@ -272,7 +271,7 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
                         <div class="obsah-karty">
                             <div>
                                 <div style="display: flex; justify-content: space-between; align-items: center;">
-                                    <!-- Pridáme štítok VÝPREDAJ iba pre stránku výpredaja -->
+                              
                                     <?php if(isset($_GET['kat']) && $_GET['kat'] == 'vypredaj'): ?>
                                         <span class="vypredaj-stiker">VÝPREDAJ</span>
                                     <?php else: ?>
@@ -356,4 +355,5 @@ elseif(isset($_GET['kat']) && is_numeric($_GET['kat'])) {
     updatePromo('promo-right');
 </script>
 </body>
+
 </html>
