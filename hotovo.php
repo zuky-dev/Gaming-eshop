@@ -1,10 +1,9 @@
 <?php
 session_start();
-// Získame ID zo session, ak neexistuje, dáme tam nulu alebo text
+
 $order_number = isset($_SESSION['last_order_id']) ? $_SESSION['last_order_id'] : 'N/A';
 
-// Voliteľné: Po zobrazení môžeme ID zmazať, aby sa pri refreshnutí stránky nezobrazovalo znova
-// unset($_SESSION['last_order_id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="sk">
@@ -55,4 +54,5 @@ $order_number = isset($_SESSION['last_order_id']) ? $_SESSION['last_order_id'] :
 </div>
 
 </body>
+
 </html>
