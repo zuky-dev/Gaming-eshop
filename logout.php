@@ -1,9 +1,10 @@
 <?php
-session_start(); // Musíme spustiť session, aby sme ju mohli zrušiť
-session_unset(); // Vymaže všetky premenné v session (košík, meno používateľa...)
-session_destroy(); // Úplne zničí session súbor na serveri
+session_start(); 
+session_unset(); 
+session_destroy(); 
 
 // Presmerovanie na prihlasovaciu stránku
 header("Location: login.php");
 exit();
+
 ?>
