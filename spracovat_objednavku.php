@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['kosik'])) {
 $user_id = $_SESSION['user_id'];
 $celkova_suma = 0;
 
-// 1. Výpočet sumy
+//  Výpočet sumy
 foreach ($_SESSION['kosik'] as $id => $qty) {
     $res = $conn->query("SELECT cena FROM produkty WHERE id = $id");
     if ($p = $res->fetch_assoc()) {
@@ -19,7 +19,7 @@ foreach ($_SESSION['kosik'] as $id => $qty) {
     }
 }
 
-// 2. Vloženie hlavnej objednávky
+//  Vloženie hlavnej objednávky
 $sql_obj = "INSERT INTO objednavky (pouzivatel_id, celkova_cena, status) 
             VALUES ($user_id, $celkova_suma, 'Nová')";
 
@@ -27,10 +27,10 @@ if ($conn->query($sql_obj)) {
     // ZÍSKANIE ČÍSLA OBJEDNÁVKY Z DATABÁZY
     $objednavka_id = $conn->insert_id;
 
-    // ULOŽENIE ČÍSLA DO SESSION PRE SÚBOR HOTOVO.PHP
+    // ULOŽENIE ČÍSLA DO SESSION 
     $_SESSION['last_order_id'] = $objednavka_id;
 
-    // 3. Vloženie jednotlivých položiek
+    //  Vloženie jednotlivých položiek
     foreach ($_SESSION['kosik'] as $id => $qty) {
         $res = $conn->query("SELECT cena FROM produkty WHERE id = $id");
         if ($p = $res->fetch_assoc()) {
@@ -40,7 +40,7 @@ if ($conn->query($sql_obj)) {
         }
     }
 
-    // 4. Vyprázdnenie košíka
+    //  Vyprázdnenie košíka
     unset($_SESSION['kosik']);
     
     // Presmerovanie na poďakovanie
@@ -49,4 +49,5 @@ if ($conn->query($sql_obj)) {
 } else {
     die("Chyba pri objednávke: " . $conn->error);
 }
+
 ?>
