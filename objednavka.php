@@ -1,7 +1,7 @@
 <?php
 session_start();
-// Tu by sa za normálnych okolností uložili dáta do DB tabuľky 'objednavky'
-unset($_SESSION['kosik']); // Vyprázdnime košík
+
+unset($_SESSION['kosik']); // Vyprázdnie košík
 ?>
 <!DOCTYPE html>
 <html lang="sk">
@@ -16,4 +16,5 @@ unset($_SESSION['kosik']); // Vyprázdnime košík
     <br>
     <a href="index.php" class="btn-hero">Späť na hlavnú stránku</a>
 </body>
+
 </html>
