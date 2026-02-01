@@ -8,7 +8,7 @@ main {
     min-height: 100vh;
     background-color: #0f172a;
 }
-/* Toto nastaví tmavé pozadie pre úplne celú stránku */
+
 html, body {
     background-color: #0f172a !important; /* Tmavomodrá */
     color: white;
@@ -46,7 +46,7 @@ header {
 nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
 nav a:hover { color: var(--primary); }
 
-/* Hero Banner */
+
 .hero {
     height: 450px;
     background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('images/gpu.jpg') center/cover;
@@ -84,16 +84,16 @@ nav a:hover { color: var(--primary); }
 .karta-produktu img { width: 100%; border-radius: 10px; }
 .stitok { position: absolute; top: 10px; left: 10px; background: var(--accent); padding: 2px 10px; border-radius: 5px; font-size: 0.8rem; }
 .btn-detail { display: block; background: #334155; color: white; padding: 10px; text-decoration: none; border-radius: 5px; margin-top: 15px; }
-/* Oprava pre obrázky a karty */
+
 .karta-produktu img {
     height: 180px;
-    object-fit: contain; /* Obrázok sa nedeformuje */
+    object-fit: contain; 
     background: #0f172a;
     margin-bottom: 10px;
 }
 
 .cena {
-    color: var(--primary) !important; /* Vynúti zelenú farbu */
+    color: var(--primary) !important; 
     font-size: 1.4rem;
     margin: 10px 0;
 }
@@ -137,7 +137,7 @@ nav a:hover { color: var(--primary); }
     transform: translateY(-5px);
 }
 
-/* Štýlový nadpis sekcie */
+/* Nadpis sekcie */
 .section-title {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -187,7 +187,7 @@ nav a:hover {
     background: rgba(0, 255, 136, 0.1);
 }
 
-/* Zvýraznenie aktívnej záložky */
+
 nav a.active {
     background: #00ff88;
     color: #0f172a;
@@ -197,7 +197,7 @@ nav a.active {
 .side-menu {
     position: absolute;
     top: 60px;
-    left: -300px; /* Schované mimo obrazovku */
+    left: -300px; 
     width: 250px;
     background: #1e293b;
     display: flex;
@@ -208,7 +208,7 @@ nav a.active {
 }
 
 .side-menu.active {
-    left: 0; /* Vysunuté */
+    left: 0; 
 }
 
 .side-menu a {
@@ -230,9 +230,8 @@ nav a.active {
 .side-nav {
     position: fixed;
     top: 0;
-    left: -350px; /* Schované */
-    width: 300px;
-    height: 100vh; /* Celá výška */
+    left: -350px; 
+    height: 100vh; 
     background: #111827;
     z-index: 9999;
     transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -275,7 +274,7 @@ nav a.active {
     cursor: pointer;
 }
 
-/* Stmavenie pozadia */
+
 .overlay {
     position: fixed;
     top: 0;
@@ -283,23 +282,23 @@ nav a.active {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.7);
-    z-index: 900; /* Nižšie ako side-nav */
+    z-index: 900; 
     opacity: 0;
-    visibility: hidden; /* Toto zabezpečí, že cez to klikneš */
+    visibility: hidden; 
     transition: 0.3s;
 }
 
 .overlay.active {
     opacity: 1;
-    visibility: visible; /* Zobrazí sa až pri kliknutí na menu */
+    visibility: visible; 
 }
 
 .side-nav {
-    z-index: 1001; /* Musí byť vždy nad overlayom */
-    /* ... tvoje ostatné štýly pre menu ... */
+    z-index: 1001; 
+   
 }
 
-/* Marketingový text */
+
 .promo-text {
     font-size: 0.85rem;
     color: #94a3b8;
@@ -326,9 +325,9 @@ tr:hover {
     background: rgba(255, 255, 255, 0.02);
 }
 
-/* Oprava farieb v košíku */
+
 .cart-link {
-    color: var(--primary) !important; /* Vynúti neonovú zelenú */
+    color: var(--primary) !important; 
     text-decoration: none;
     font-weight: bold;
 }
@@ -366,7 +365,7 @@ tbody tr td {
     position: relative;
 }
 
-/* Ak obrázok neexistuje, vypíšeme text */
+
 .karta-produktu img:after { 
     content: "Foto pripravujeme";
     display: flex;
@@ -380,7 +379,7 @@ tbody tr td {
     <meta charset="UTF-8">
     <title>Prihlásenie | Gaming Beast</title>
     <link rel="stylesheet" href="style.css">
-	/* Kontajner pre tlačidlá, aby boli pod sebou s medzerou */
+
 .akcie-tlacidla {
     display: flex;
     flex-direction: column;
@@ -429,11 +428,11 @@ tbody tr td {
     box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
 }
 
-/* Oprava chýbajúcich fotiek */
+
 .foto-kontajner img {
     width: 100%;
     height: 200px;
-    object-fit: contain; /* Zabezpečí, že foto nebude natiahnuté */
+    object-fit: contain; 
     background: #0f172a;
 }
     <style>
@@ -467,7 +466,7 @@ tbody tr td {
     font-size: 1.1rem;
     margin-top: 5px;
 }
-        /* SEM VLOŽ TEN KÓD */
+    
         .video-background {
             position: fixed;
             right: 0;
@@ -492,7 +491,7 @@ tbody tr td {
         }
 		body {
     background-color: #0f172a;
-    /* Pridá jemnú mriežku na pozadie celej stránky */
+  
     background-image: 
         linear-gradient(rgba(0, 255, 136, 0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(0, 255, 136, 0.05) 1px, transparent 1px);
@@ -553,7 +552,8 @@ body::after {
 }
 
 @media (max-width: 1400px) {
-    .reklama-side { display: none; } /* Skryje reklamy na malých monitoroch */
+    .reklama-side { display: none; } 
 }
     </style>
+
 </head>
